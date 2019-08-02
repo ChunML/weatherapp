@@ -1,5 +1,45 @@
 import React from 'react';
-import { FaTint, FaTachometerAlt, FaTemperatureHigh, FaTemperatureLow, FaWind } from 'react-icons/fa';
+import { FaTint, FaTachometerAlt, FaTemperatureHigh, FaTemperatureLow, FaWind, FaCloudSun, FaQuestion, FaCloudMeatball, FaCloudShowersHeavy, FaSnowflake, FaUmbrella, FaSmog, FaCloud } from 'react-icons/fa';
+
+function WeatherIcon({ description }) {
+  let icon = null;
+
+  const size = 100;
+
+  switch (description) {
+    case 'clear sky':
+      icon = <FaSun size={size} />;
+      break;
+    case 'few clouds':
+      icon = <FaCloudSun size={size} />;
+      break;
+    case 'scattered clouds':
+      icon = <FaCloud size={size} />;
+      break;
+    case 'broken clouds':
+      icon = <FaCloudMeatball size={size} />;
+      break;
+    case 'shower rain':
+      icon = <FaUmbrella size={size} />;
+      break;
+    case 'rain':
+      icon = <FaCloudRain size={size} />;
+      break;
+    case 'thunderstorm':
+      icon = <FaCloudShowersHeavy size={size} />;
+      break;
+    case 'snow':
+      icon = <FaSnowflake size={size} />;
+      break;
+    case 'mist':
+      icon = <FaSmog size={size} />;
+      break;
+    default:
+      return <FaQuestion size={size} />
+  }
+
+  return <div className='center-text'>{icon}</div>;
+}
 
 export default function WeatherDetail({ weatherInfo }) {
   const { humidity, pressure, temp, temp_max, temp_min } = weatherInfo.main;
@@ -13,6 +53,9 @@ export default function WeatherDetail({ weatherInfo }) {
       <h1 className='header-super-lg center-text no-margin'>
         {temp}&#8451;
       </h1>
+      <WeatherIcon
+        description={description}
+      />
       <h4 className='header-sm center-text no-margin'>
         {description}
       </h4>
