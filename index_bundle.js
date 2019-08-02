@@ -153,7 +153,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getCurrentWeather\", function() { return getCurrentWeather; });\nvar API_KEY = 'bb7bd8c4c1d60807a3a01d7e5d0abadb';\nfunction getCurrentWeather(currentCity) {\n  var url = \"http://api.openweathermap.org/data/2.5/weather?q=\".concat(currentCity, \"&units=metric&apikey=\").concat(API_KEY);\n  return fetch(url).then(function (res) {\n    return res.json();\n  }).then(function (data) {\n    if (!data.weather) {\n      throw new Error(data.message);\n    }\n\n    return data;\n  });\n}\n\n//# sourceURL=webpack:///./app/utils/api.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getCurrentWeather\", function() { return getCurrentWeather; });\nvar API_KEY = 'bb7bd8c4c1d60807a3a01d7e5d0abadb';\nfunction getCurrentWeather(currentCity) {\n  var url = \"https://api.openweathermap.org/data/2.5/weather?q=\".concat(currentCity, \"&units=metric&apikey=\").concat(API_KEY);\n  return fetch(url).then(function (res) {\n    return res.json();\n  }).then(function (data) {\n    if (!data.weather) {\n      throw new Error(data.message);\n    }\n\n    return data;\n  });\n}\n\n//# sourceURL=webpack:///./app/utils/api.js?");
 
 /***/ }),
 
